@@ -9,8 +9,7 @@ def delivery_report(err, msg):
 def produce_messages():
     p = Producer({'bootstrap.servers': 'localhost:9092'})
 
-    for i in range(5):  # Envoyer 5 messages
-        p.produce('topic-delivered', f"Message {i}", callback=delivery_report)
+    p.produce('topic-delivered', "delivery_done", callback=delivery_report)
 
     p.flush()
 

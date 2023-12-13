@@ -16,7 +16,7 @@ def consume_messages():
                     print(f"Consumer error: {msg.error()}")
                     break
 
-            rep = input("La livraison a bien été effectuée, souhaitez-vous acheter d'autres voitures ? O/N\n----------------------------")
+            rep = input("La livraison a bien été effectuée. Souhaitez-vous acheter d'autres voitures ? O/N\n----------------------------")
             if(rep == "O"):
                 execute_selling_producer()
             else:

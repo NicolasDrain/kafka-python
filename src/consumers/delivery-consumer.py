@@ -26,7 +26,7 @@ def consume_messages():
                 print("Un total de 10 voitures ont été produites la livraison commence et prends 2 secondes, veuillez-patienter\n----------------------------")
                 time.sleep(2)
                 number_cars_built = 0
-                execute_selling_consumer()
+                execute_delivery_producer()
                 
             else:
                 print("Vous avez actuellement %d voitures produites, la livraison sera effectuée à 10 voitures\n----------------------------" %number_cars_built)
@@ -43,8 +43,8 @@ def execute_selling_producer():
     chemin_fichier = "src/producers/selling-producer.py"
     subprocess.run(["python", chemin_fichier])
 
-def execute_selling_consumer():
-    chemin_fichier = "src/consumers/selling-consumer.py"
+def execute_delivery_producer():
+    chemin_fichier = "src/producers/delivery-producer.py"
     subprocess.run(["python", chemin_fichier])
 
 if __name__ == '__main__':
