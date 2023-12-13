@@ -1,4 +1,5 @@
 from confluent_kafka import Consumer, KafkaException
+import subprocess
 
 def consume_messages():
     c = Consumer({'bootstrap.servers': 'localhost:9092', 'group.id': 'mygroup', 'auto.offset.reset': 'earliest'})
@@ -16,11 +17,8 @@ def consume_messages():
                     print(f"Consumer error: {msg.error()}")
                     break
 
-            rep = input("La livraison a bien été effectuée. Souhaitez-vous acheter d'autres voitures ? O/N\n----------------------------")
-            if(rep == "O"):
-                execute_selling_producer()
-            else:
-                break
+            print("La livraison a bien été effectuée. Vous pouvez désormais acheter d'autres voitures\n----------------------------")
+            execute_selling_producer()
 
     except KeyboardInterrupt:
         pass
